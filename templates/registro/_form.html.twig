@@ -1,0 +1,480 @@
+{{ form_start(form) }}
+<div class="container">
+    <div class="alert alert-light " role="alert">
+        <h4 class="alert-heading"><i class="fa-solid fa-triangle-exclamation"></i> Importante</h4>
+        <ul class="pt-2">
+            <li><p>Se enviará un correo a la profesora o profesor que te recomienda para solicitarle que nos proporcione tu carta de recomendación,
+                    por lo que debes asegurarte de escribir correctamente su dirección de correo.</p></li>
+            <li><p>Al finalizar el envío de este formulario debes de visualizar una pantalla de confirmación. Además, recibirás un correo
+                    electrónico a la cuenta que proporcionaste, de no ser así favor de revisar tu carpeta de correos no deseados o comunicarte
+                    al correo <mark>webmaster<i class="fa-solid fa-at"></i>matmor.unam.mx</mark> para asegurarte que hayamos recibido tu solicitud.</p></li>
+        </ul>
+        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <i class="fa-solid fa-link"></i> Aviso de privacidad
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Aviso de Privacidad</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Aviso de Privacidad Simplificado del Centro de Ciencias Matemáticas de la UNAM.</h5>
+                        <p class="mt-3">El Centro de Ciencias Matemáticas de la UNAM, es responsable del tratamiento de sus datos personales
+                            para el registro de usted en calidad de alumno, docente, personal de la entidad académica,
+                            conferencista o invitado externo (nacional o extranjero), visitante, proveedor o cliente de servicios universitarios.
+                        </p>
+                        <p>
+                            Para cumplir las finalidades necesarias anteriormente descritas u otras aquellas exigidas
+                            legalmente o por las autoridades competentes podrá transferir sus datos personales.
+                            Podrá ejercer sus derechos ARCO en la Unidad de Transparencia de la UNAM, o a través de
+                            la Plataforma Nacional de Transparencia:
+                            <a href="https://www.plataformadetransparencia.org.mx/" target="_blank">
+                                https://www.plataformadetransparencia.org.mx
+                            </a>
+                        </p>
+                        <p>
+                        El aviso de privacidad integral se puede consultar en la siguiente dirección web:
+                            <a href="https://matmor.unam.mx/AvisoPrivacidad-CCM.pdf" target="_blank">
+                                Aviso de Privacidad Integral del CCM
+                            </a>
+                        </p>
+                    </div>
+                   <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="mb-0">
+            <i class="fa-solid fa-calendar"></i> Fecha límite para realizar tu registro: <mark>3 de octubre de 2025</mark>.
+        </p>
+    </div>
+    <p class="h4">Datos personales</p>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.nombre, {
+                label: 'Nombre',
+                attr: {
+                    placeholder: 'Nombre'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.paterno, {
+                label: 'Apellido paterno',
+                attr: {
+                    placeholder: 'Apellido paterno'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.materno, {
+                label: 'Apellido materno',
+                attr: {
+                    placeholder: 'Name'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <p class="text-secondary">La información del campo sexo es requerida con fines de la asignación de habitación ya que es compartida.</p>
+        <div class="col col-md-4 col-sm-12  ">
+            {{ form_row(form.sexo, {
+                label: 'Sexo',
+                attr: {
+                    placeholder: 'Sexo'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.nacimiento, {
+                label: 'Fecha de Nacimiento',
+                attr: {
+                    placeholder: 'Fecha de nacimiento'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mail.first, {
+                label: 'Correo electrónico',
+                attr: {
+                    placeholder: 'Correo'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mail.second, {
+                label: 'Confirma correo electrónico',
+                attr: {
+                    placeholder: 'Correo'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <hr>
+    <p class="h4">Datos académicos</p>
+
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.procedencia, {
+                label: 'Universidad de procedencia',
+                attr: {
+                    placeholder: 'Universidad de Procedencia'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+         <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.nivel, {
+                label: 'Nivel actual',
+                attr: {
+                    placeholder: 'Nivel actual'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.carrera, {
+                label: 'Carrera',
+                attr: {
+                    placeholder: 'Carrera'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.semestre, {
+                label: 'Semestre o cuatrimestre',
+                attr: {
+                    placeholder: 'Semestre'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.porcentaje, {
+                label: 'Porcentaje de avance (hasta agosto 2025)',
+                attr: {
+                    placeholder: 'Porcentaje de avance (hasta agosto 2025)'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.promedio, {
+                label: 'Promedio',
+                attr: {
+                    placeholder: 'Promedio'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col-md-12 mt-3" >
+            <p class="text-secondary">{{ form_label(form.caliFile) }}</p>
+            <div class="col-md-6">{{ form_widget(form.caliFile) }}</div>
+            <div class="col-md-6">{{ form_errors(form.caliFile) }}</div>
+        </div>
+    </div>
+    <div class="row pt-2 ">
+
+        <div class="col-md-12 mt-3" >
+            <p class="text-secondary">En caso de ser alumno o alumna de la UNAM, adjuntar copia de tu credencial UNAM.
+                En caso contrario haga caso omiso a este paso.</p>
+
+            <div class="col-md-6">{{ form_widget(form.credencialFile) }}</div>
+            <div class="col-md-6">{{ form_errors(form.credencialFile) }}</div>
+        </div>
+    </div>
+
+
+    <div class="row pt-3">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.profesor, {
+                label: 'Profesor(a) que recomienda su participación',
+                attr: {
+                    placeholder: 'Profesor(a) que recomienda su participación'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.univprofesor, {
+                label: 'Universidad del profesor o profesora',
+                attr: {
+                    placeholder: 'Universidad del profesor'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mailprofesor.first, {
+                label: 'Correo del profesor o profesora',
+                attr: {
+                    placeholder: 'Correo del profesor o profesora'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.mailprofesor.second, {
+                label: 'Confirma correo del profesor o profesora',
+                attr: {
+                    placeholder: 'Correo del profesor o profesora'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <hr>
+    <p class="h4">{{ evento }}</p>
+
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.beca, {
+                label: 'Beca',
+                attr: {
+                    placeholder: 'Beca'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+
+        <div class="col col-md-8 col-sm-8" id="div_registro_vegetariano">
+            {{ form_row(form.restricciones, {
+                label: 'Mencionar si tienes alguna restricción alimenticia',
+                attr: {
+                    placeholder: 'Mencionar si tienes alguna restricción alimenticia',
+                },
+                row_attr: {
+                    class: 'form-floating',
+                    id: 'registro_vegetariano',
+                }
+            }) }}
+        </div>
+    </div>
+
+    <div class="row pt-2">
+     <p class="text-secondary">De no ser posible ofrecerle apoyo en transporte,alimentación u hospedaje,
+     ¿consideraría usted la posibilidad de asistir al evento por cuenta propia?</p>
+
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.cuentap, {
+                label: 'Asistir por cuenta propia',
+                attr: {
+                    placeholder: 'Asistir por cuenta propia'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <p class="text-secondary">Como participante deberá tomar un curso obligatorio (<strong>C1</strong>) y tres cursos optativos. Te recomendamos seguir dos perfiles de investigación:<br>
+        1. <strong>Epidemiología matemática</strong> (<strong>C2</strong> Estadística, <strong>C3</strong> Procesos de Markov, <strong>C4</strong> Identificación de parámetros)<br>
+        2. <strong>Ecología</strong> (<strong>C5</strong>, <strong>C6</strong> Bioinformática, <strong>C7</strong> Biología molecular)</p>
+
+        <div class="col col-md-6">
+            {{ form_row(form.curso1, {
+                label: 'Selecciona tu curso optativo',
+                attr: {
+                    placeholder: 'Curso optativo',
+                },
+                row_attr: {
+                    class: 'form-floating',
+                }
+            }) }}
+        </div>
+        <div class="col col-md-6 pt-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalC1">
+                Consultar cursos
+            </button>
+        </div>
+        <div class="col col-md-6">
+            {{ form_row(form.curso2, {
+                label: 'Selecciona tu curso optativo',
+                attr: {
+                    placeholder: 'Curso optativo',
+                },
+                row_attr: {
+                    class: 'form-floating',
+                }
+            }) }}
+        </div>
+        <div class="col col-md-6 pt-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalC2">
+                Consultar cursos
+            </button>
+        </div>
+    </div>
+
+    <div class="row pt-2">
+        <div class="col col-md-12">
+            {{ form_row(form.razones, {
+                label: 'Razones y motivos por las que desea asisitir, mínimo 300 caracteres y máximo 800 caracteres.',
+                attr: {
+                    placeholder: 'Razones y motivos por las que desa asistir',
+                },
+                row_attr: {
+                    class: 'form-floating ',
+                },
+            }) }}
+             <p id="demo"></p>
+        <div style="margin-top: 0.25rem; text-align: right" id="counter">0</div>
+        </div>
+
+
+    <div class="d-grid gap-2 pt-3 mb-2 col-3 mx-auto">
+        <button class="btn btn-dark"><h5> <i class="fa-regular fa-paper-plane"></i> {{ button_label|default('Enviar') }}</h5></button>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal C1-->
+<div class="modal fade" id="exampleModalC1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Curso optativo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="h6">C3:, <em class="h6 text-secondary">Instructor</em></p>
+                <p style="text-align: justify;">
+                    Resumen:
+                </p>
+
+               <p class="h6">C4:, <em class="h6 text-secondary">Instructor</em></p>
+                <p style="text-align: justify;">
+                    Resumen:
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal C2-->
+<div class="modal fade" id="exampleModalC2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Curso optativo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <p class="h6">C5:, <em class="h6 text-secondary">Instructor</em></p>
+                <p style="text-align: justify;">
+                    Resumen:
+                </p>
+                 <p class="h6">C6:, <em class="h6 text-secondary">Instructor</em></p>
+                <p style="text-align: justify;">
+                    Resumen:
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{ form_widget(form) }}
+
+
+{{ form_end(form) }}
+
+    {% block javascripts %}
+        <script>
+            function myFunction() {
+                document.getElementById("registro_razones").maxLength = "800";
+            }
+
+            const messageEle = document.getElementById('registro_razones');
+            const counterEle = document.getElementById('counter');
+            let color;
+
+            ["click", "input"].forEach((event) => { messageEle.addEventListener(event, function (e) {
+            const target = e.target;
+            // Get the `maxlength` attribute
+            const maxLength = 800;
+            // Count the current number of characters
+            const currentLength = target.value.length;
+            counterEle.innerHTML = `${currentLength}/${maxLength}`;
+            if (currentLength < 300) {
+                counterEle.style.color = "red";
+            }
+            else if (currentLength => 300 && currentLength <= 800 ) {
+               counterEle.style.color = "green";
+            } else {
+               counterEle.style.color = "black";
+            }
+              });
+            })
+        </script>
+{% endblock %}
