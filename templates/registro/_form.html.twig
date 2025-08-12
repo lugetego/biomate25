@@ -512,14 +512,14 @@
             ["click", "input"].forEach((event) => { messageEle.addEventListener(event, function (e) {
             const target = e.target;
             // Get the `maxlength` attribute
-            const maxLength = 800;
+            const maxLength = 2000;
             // Count the current number of characters
             const currentLength = target.value.length;
             counterEle.innerHTML = `${currentLength}/${maxLength}`;
             if (currentLength < 300) {
                 counterEle.style.color = "red";
             }
-            else if (currentLength => 300 && currentLength <= 800 ) {
+            else if (currentLength => 300 && currentLength <= 2000 ) {
                counterEle.style.color = "green";
             } else {
                counterEle.style.color = "black";
