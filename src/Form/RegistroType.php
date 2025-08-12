@@ -112,16 +112,24 @@ class RegistroType extends AbstractType
             ])
             ->add('curso1',ChoiceType::class, [
                 'choices'  => [
-                    'C3-' => 'C3',
-                    'C4-' => 'C4',
+                    'C2: Procesos de Markov a tiempo continuo' => 'Markov',
+                    'C6: Modelos booleanos para el estudio de procesos biológicos' => 'Booleana',
 
                 ],
                 'placeholder' => 'Seleccionar',
             ])
             ->add('curso2',ChoiceType::class, [
                 'choices'  => [
-                    'C5-Las sumas trigonométricas y aplicaciones'=>'C5',
-                    'C6-El fenómeno de continuidad automática' => 'C6',
+                    'C3: Estadística e Inferencia Bayesiana Aplicada al Análisis de Datos'=>'Inferencia',
+                    'C5: Niveles biológicos de organización, biodiversidad y ecología de la conducta' => 'Ecología',
+
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('curso3',ChoiceType::class, [
+                'choices'  => [
+                    'C4: Identificabilidad estructural y práctica de parámetros'=>'Identificabilidad ',
+                    'C7: Clustering y aprendizaje no supervisado en datos biológicos' => 'Clustering',
 
                 ],
                 'placeholder' => 'Seleccionar',
