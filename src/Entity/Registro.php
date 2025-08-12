@@ -165,7 +165,7 @@ class Registro
      * @ORM\Column(type="text")
      * @Assert\Length(
      *      min = 300,
-     *      max = 800,
+     *      max = 2000,
      *      minMessage = "Mínimo {{ limit }} caracteres",
      *      maxMessage = "Máximo {{ limit }} caracteres"
      * )
