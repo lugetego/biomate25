@@ -157,6 +157,46 @@ class Registro
     private $curso3;
 
     /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $edo;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $r;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $python;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $matlab;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $estadistica;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $inferencia;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $poster;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $tituloposter;
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $aceptado;
@@ -756,6 +796,133 @@ class Registro
         $this->curso3 = $curso3;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getEdo()
+    {
+        return $this->edo;
+    }
+
+    /**
+     * @param mixed $edo
+     */
+    public function setEdo($edo): void
+    {
+        $this->edo = $edo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getR()
+    {
+        return $this->r;
+    }
+
+    /**
+     * @param mixed $r
+     */
+    public function setR($r): void
+    {
+        $this->r = $r;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPython()
+    {
+        return $this->python;
+    }
+
+    /**
+     * @param mixed $python
+     */
+    public function setPython($python): void
+    {
+        $this->python = $python;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMatlab()
+    {
+        return $this->matlab;
+    }
+
+    /**
+     * @param mixed $matlab
+     */
+    public function setMatlab($matlab): void
+    {
+        $this->matlab = $matlab;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEstadistica()
+    {
+        return $this->estadistica;
+    }
+
+    /**
+     * @param mixed $estadistica
+     */
+    public function setEstadistica($estadistica): void
+    {
+        $this->estadistica = $estadistica;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInferencia()
+    {
+        return $this->inferencia;
+    }
+
+    /**
+     * @param mixed $inferencia
+     */
+    public function setInferencia($inferencia): void
+    {
+        $this->inferencia = $inferencia;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPoster()
+    {
+        return $this->poster;
+    }
+
+    /**
+     * @param mixed $poster
+     */
+    public function setPoster($poster): void
+    {
+        $this->poster = $poster;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTituloposter()
+    {
+        return $this->tituloposter;
+    }
+
+    /**
+     * @param mixed $tituloposter
+     */
+    public function setTituloposter($tituloposter): void
+    {
+        $this->tituloposter = $tituloposter;
+    }
 
 
 }

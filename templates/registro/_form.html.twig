@@ -37,13 +37,13 @@
                             </a>
                         </p>
                         <p>
-                        El aviso de privacidad integral se puede consultar en la siguiente dirección web:
+                            El aviso de privacidad integral se puede consultar en la siguiente dirección web:
                             <a href="https://matmor.unam.mx/AvisoPrivacidad-CCM.pdf" target="_blank">
                                 Aviso de Privacidad Integral del CCM
                             </a>
                         </p>
                     </div>
-                   <div class="modal-footer">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                 }
             }) }}
         </div>
-         <div class="col col-md-4 col-sm-12">
+        <div class="col col-md-4 col-sm-12">
             {{ form_row(form.nivel, {
                 label: 'Nivel actual',
                 attr: {
@@ -308,8 +308,8 @@
     </div>
 
     <div class="row pt-2">
-     <p class="text-secondary">De no ser posible ofrecerle apoyo en transporte, alimentación u hospedaje,
-     ¿consideraría usted la posibilidad de asistir al evento por cuenta propia?</p>
+        <p class="text-secondary">De no ser posible ofrecerle apoyo en transporte, alimentación u hospedaje,
+            ¿consideraría usted la posibilidad de asistir al evento por cuenta propia?</p>
 
         <div class="col col-md-4 col-sm-12">
             {{ form_row(form.cuentap, {
@@ -326,14 +326,14 @@
 
     <div class="row mt-3">
         <p class="text-secondary">Como participante deberá <strong>traer su laptop</strong>, ya que la usarás en tus actividades prácticas.
-        El <strong>Curso C1 será obligatorio para todos</strong>. Además, deberá elegir uno de los tres cursos opcionales. Ejemplo, puedes seguir los perfiles de investigación:
-        <br>
-        1. <strong>Epidemiología matemática</strong> (<strong>C2</strong> <em>Procesos de Markov a tiempo continuo</em>,
-           <strong>C3</strong> <em>Estadística e Inferencia Bayesiana Aplicada al Análisis de Datos</em>,
-           <strong>C4</strong> <em>Identificabilidad estructural y práctica de parámetros</em>)<br>
-        2. <strong>Ecología/Biología</strong> (<strong>C5</strong> <em>Niveles biológicos de organización, biodiversidad y ecología de la conducta</em>,
-           <strong>C6</strong> <em>Modelos booleanos para el estudio de procesos biológicos</em>,
-           <strong>C7</strong> <em>Clustering y aprendizaje no supervisado en datos biológicos</em>)</p>
+            El <strong>Curso C1 será obligatorio para todos</strong>. Además, deberá elegir uno de los tres cursos opcionales. Ejemplo, puedes seguir los perfiles de investigación:
+            <br>
+            1. <strong>Epidemiología matemática</strong> (<strong>C2</strong> <em>Procesos de Markov a tiempo continuo</em>,
+            <strong>C3</strong> <em>Estadística e Inferencia Bayesiana Aplicada al Análisis de Datos</em>,
+            <strong>C4</strong> <em>Identificabilidad estructural y práctica de parámetros</em>)<br>
+            2. <strong>Ecología/Biología</strong> (<strong>C5</strong> <em>Niveles biológicos de organización, biodiversidad y ecología de la conducta</em>,
+            <strong>C6</strong> <em>Modelos booleanos para el estudio de procesos biológicos</em>,
+            <strong>C7</strong> <em>Clustering y aprendizaje no supervisado en datos biológicos</em>)</p>
 
         <div class="col col-md-6">
             {{ form_row(form.curso1, {
@@ -369,7 +369,7 @@
                 Consultar cursos
             </button>
         </div>
-         <div class="col col-md-6">
+        <div class="col col-md-6">
             {{ form_row(form.curso3, {
                 label: 'Seleccionar curso',
                 attr: {
@@ -399,15 +399,123 @@
                     class: 'form-floating ',
                 },
             }) }}
-             <p id="demo"></p>
-        <div style="margin-top: 0.25rem; text-align: right" id="counter">0</div>
+            <p id="demo"></p>
+            <div style="margin-top: 0.25rem; text-align: right" id="counter">0</div>
+
         </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4">
+            {{ form_row(form.poster, {
+                label: '¿Estás interesado/a en presentar un póster de investigación durante la Escuela?',
+                attr: {
+                    placeholder: '¿Estás interesado/a en presentar un póster de investigación durante la Escuela?',
+
+            },
+                row_attr: {
+                    class: 'form-floating ',
+                },
+            }) }}
+
+        </div>
+    </div>
+
+    <div class="row pt-2">
+        <div class="col col-md-12">
+            {{ form_row(form.tituloposter, {
+                label: 'Título tentativo del póster y una breve descripción,  mínimo 300 caracteres y máximo 1000 caracteres.',
+                attr: {
+                    placeholder: 'Título tentativo del póster ',
+                },
+                row_attr: {
+                    class: 'form-floating ',
+                },
+            }) }}
+            <p id="demo"></p>
+            <div style="margin-top: 0.25rem; text-align: right" id="counter2">0</div>
+        </div>
+    </div>
+
+    <hr>
+    <p class="h4">Formación y conocimientos previos</p>
+    <div class="row pt-2">
+        <p class="text-secondary">Para cada tema, selecciona el nivel que mejor describe tu experiencia:</p>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.edo, {
+                label: 'Ecuaciones Diferenciales Ordinarias (EDO)',
+                attr: {
+                    placeholder: 'Ecuaciones Diferenciales Ordinarias (EDO)'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.r, {
+                label: 'Programación en R',
+                attr: {
+                    placeholder: 'Programación en R'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.python, {
+                label: 'Programación en Python',
+                attr: {
+                    placeholder: 'Programación en Python'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.matlab, {
+                label: 'Programación en Matlab',
+                attr: {
+                    placeholder: 'Programación en Matlab'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.estadistica, {
+                label: 'Estadística y Probabilidad',
+                attr: {
+                    placeholder: 'Estadística y Probabilidad'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            {{ form_row(form.inferencia, {
+                label: 'Inferencia Bayesiana',
+                attr: {
+                    placeholder: 'Inferencia Bayesiana'
+                },
+                row_attr: {
+                    class: 'form-floating'
+                }
+            }) }}
+        </div>
+    </div>
 
 
     <div class="d-grid gap-2 pt-3 mb-2 col-3 mx-auto">
         <button class="btn btn-dark"><h5> <i class="fa-regular fa-paper-plane"></i> {{ button_label|default('Enviar') }}</h5></button>
     </div>
 </div>
+
 
 
 
@@ -423,13 +531,13 @@
             </div>
             <div class="modal-body">
                 <p class="h6">C2: Procesos de Markov a tiempo continuo, <em class="h6 text-secondary">
-                Imelda Trejo Lorenzo, Centro de Ciencias Matemáticas, UNAM, MX</em></p>
+                        Imelda Trejo Lorenzo, Centro de Ciencias Matemáticas, UNAM, MX</em></p>
                 <p style="text-align: justify;">
                     Resumen:
                 </p>
 
-               <p class="h6">C6: Modelos booleanos para el estudio de procesos biológicos, <em class="h6 text-secondary">
-               Eugenio Azpeitia Espinosa, Centro de Ciencias Matemáticas, UNAM Campus Morelia</em></p>
+                <p class="h6">C6: Modelos booleanos para el estudio de procesos biológicos, <em class="h6 text-secondary">
+                        Eugenio Azpeitia Espinosa, Centro de Ciencias Matemáticas, UNAM Campus Morelia</em></p>
                 <p style="text-align: justify;">
                     Resumen:
                 </p>
@@ -451,13 +559,13 @@
             </div>
             <div class="modal-body">
                 <p class="h6">C3: Estadística e Inferencia Bayesiana Aplicada al Análisis de Datos, <em class="h6 text-secondary">
-                Nicolas (Nick) Hengartner, Theoretical Biology and Biophysics Group, Los Alamos National Laboratory, Los Alamos, New Mexico, USA</em></p>
+                        Nicolas (Nick) Hengartner, Theoretical Biology and Biophysics Group, Los Alamos National Laboratory, Los Alamos, New Mexico, USA</em></p>
                 <p style="text-align: justify;">
                     Resumen:
                 </p>
-                 <p class="h6">C5: Niveles biológicos de organización, biodiversidad y ecología de la conducta, <em class="h6 text-secondary">
-                 Cisteil Xinum Pérez Hernández y Luis Felipe Mendoza Cuenca, Laboratorio de Ecología de la Conducta,
-                 Facultad de Biología, Universidad Michoacana de San Nicolás de Hidalgo, Morelia, Michoacán, México.</em></p>
+                <p class="h6">C5: Niveles biológicos de organización, biodiversidad y ecología de la conducta, <em class="h6 text-secondary">
+                        Cisteil Xinum Pérez Hernández y Luis Felipe Mendoza Cuenca, Laboratorio de Ecología de la Conducta,
+                        Facultad de Biología, Universidad Michoacana de San Nicolás de Hidalgo, Morelia, Michoacán, México.</em></p>
                 <p style="text-align: justify;">
                     Resumen:
                 </p>
@@ -478,12 +586,12 @@
             </div>
             <div class="modal-body">
                 <p class="h6">C4: Identificabilidad estructural y práctica de parámetros, <em class="h6 text-secondary">
-                Gerardo Chowell-Puente, School of Public Health, Georgia State University, Atlanta, Georgia, USA</em></p>
+                        Gerardo Chowell-Puente, School of Public Health, Georgia State University, Atlanta, Georgia, USA</em></p>
                 <p style="text-align: justify;">
                     Resumen:
                 </p>
-                 <p class="h6">C7: Clustering y aprendizaje no supervisado en datos biológicos, <em class="h6 text-secondary">
-                 Nelly Selém Mojica y Haydee Contreras Peruyero, Centro de Ciencias Matemáticas, UNAM Campus Morelia.</em></p>
+                <p class="h6">C7: Clustering y aprendizaje no supervisado en datos biológicos, <em class="h6 text-secondary">
+                        Nelly Selém Mojica y Haydee Contreras Peruyero, Centro de Ciencias Matemáticas, UNAM Campus Morelia.</em></p>
                 <p style="text-align: justify;">
                     Resumen:
                 </p>
@@ -503,30 +611,54 @@
 
     {% block javascripts %}
         <script>
-            function myFunction() {
-                document.getElementById("registro_razones").maxLength = "2000";
+            function setMaxLength(id, max) {
+                document.getElementById(id).maxLength = max;
             }
 
-            const messageEle = document.getElementById('registro_razones');
-            const counterEle = document.getElementById('counter');
-            let color;
+            function attachCounter(inputId, counterId, maxLength) {
+                const inputEle = document.getElementById(inputId);
+                const counterEle = document.getElementById(counterId);
 
-            ["click", "input"].forEach((event) => { messageEle.addEventListener(event, function (e) {
-            const target = e.target;
-            // Get the `maxlength` attribute
-            const maxLength = 2000;
-            // Count the current number of characters
-            const currentLength = target.value.length;
-            counterEle.innerHTML = `${currentLength}/${maxLength}`;
-            if (currentLength < 300) {
-                counterEle.style.color = "red";
+                ["click", "input"].forEach((event) => {
+                    inputEle.addEventListener(event, function (e) {
+                        const currentLength = e.target.value.length;
+                        counterEle.innerHTML = `${currentLength}/${maxLength}`;
+
+                        if (currentLength < 300) {
+                            counterEle.style.color = "red";
+                        } else if (currentLength >= 300 && currentLength <= maxLength) {
+                            counterEle.style.color = "green";
+                        } else {
+                            counterEle.style.color = "black";
+                        }
+                    });
+                });
             }
-            else if (currentLength >= 300 && currentLength <= maxLength) {
-               counterEle.style.color = "green";
-            } else {
-               counterEle.style.color = "black";
-            }
-              });
-            })
+
+            // Apply to your fields
+            setMaxLength("registro_razones", 2000);
+            attachCounter("registro_razones", "counter", 2000);
+
+            setMaxLength("registro_tituloposter", 1000);
+            attachCounter("registro_tituloposter", "counter2", 1000);
         </script>
-{% endblock %}
+        <script>
+            const posterField = document.getElementById("registro_poster");
+            const tituloPosterField = document.getElementById("registro_tituloposter");
+
+            function toggleTituloPoster() {
+                if (posterField.value === "Sí") {
+                    tituloPosterField.removeAttribute("disabled");
+                } else {
+                    tituloPosterField.setAttribute("disabled", "true");
+                    tituloPosterField.value = ""; // clear when disabled
+                }
+            }
+
+            // Run on load
+            toggleTituloPoster();
+
+            // Run when user changes poster field
+            posterField.addEventListener("change", toggleTituloPoster);
+        </script>
+    {% endblock %}

@@ -134,6 +134,72 @@ class RegistroType extends AbstractType
                 ],
                 'placeholder' => 'Seleccionar',
             ])
+            ->add('edo',ChoiceType::class, [
+                'choices'  => [
+                    'No tengo experiencia'=>'No tengo experiencia',
+                    'Nivel básico (he visto conceptos introductorios en clase)' => 'Básico',
+                    'Nivel intermedio (sé plantear y resolver algunos problemas con EDOs)'=>'Intermedio',
+                    'Nivel avanzado (he aplicado EDOs en proyectos de modelación o investigación)'=>'Avanzado'
+
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('r',ChoiceType::class, [
+                'choices'  => [
+                    'No tengo experiencia'=>'No tengo experiencia',
+                    'Nivel básico (sé correr código ya escrito y modificarlo ligeramente)' => 'Básico',
+                    'Nivel intermedio (puedo resolver numéricamente EDOs, usar datos y hacer gráficas)'=>'Intermedio',
+                    'Nivel avanzado (uso R para análisis estadístico/modelos más complejos)'=>'Avanzado'
+
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('python',ChoiceType::class, [
+                'choices'  => [
+                    'No tengo experiencia'=>'No tengo experiencia',
+                    'Nivel básico (sé correr código ya escrito y modificarlo ligeramente)' => 'Básico',
+                    'Nivel intermedio (puedo usar librerías como NumPy/Pandas/Matplotlib)'=>'Intermedio',
+                    'Nivel avanzado (he trabajado en proyectos de simulación o análisis con Python)'=>'Avanzado'
+
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('matlab',ChoiceType::class, [
+                'choices'  => [
+                    'No tengo experiencia'=>'No tengo experiencia',
+                    'Nivel básico (he usado Matlab en clases o ejercicios sencillos)' => 'Básico',
+                    'Nivel intermedio (puedo programar funciones, hacer simulaciones numéricas)'=>'Intermedio',
+                    'Nivel avanzado (he trabajado en proyectos de simulación/modelación en Matlab)'=>'Avanzado'
+
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('estadistica',ChoiceType::class, [
+                'choices'  => [
+                    'No tengo experiencia'=>'No tengo experiencia',
+                    'Nivel básico (sé calcular medidas descriptivas y probabilidades sencillas)' => 'Básico',
+                    'Nivel intermedio (he aplicado distribuciones, pruebas de hipótesis o regresión)'=>'Intermedio',
+                    'Nivel avanzado (he usado estadística/probabilidad en investigación)'=>'Avanzado',
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('inferencia',ChoiceType::class, [
+                'choices'  => [
+                    'Sí'=>'Sí',
+                    'No' => 'No',
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('poster',ChoiceType::class, [
+                'choices'  => [
+                    'Sí'=>'Sí',
+                    'No' => 'No',
+                ],
+                'placeholder' => 'Seleccionar',
+            ])
+            ->add('tituloposter', TextareaType::class,array(
+                'required' => false,
+                'label'=>'Título tentativo del póster y una breve descripción (máximo 200 palabras)'))
             ->add('aceptado')
             ->add('razones', TextareaType::class,array(
                 'label'=>'Razones por las que desa asistir',
