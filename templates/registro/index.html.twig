@@ -21,6 +21,108 @@
         {% set aceptados = 0 %}
         {% set confirmados = 0 %}
 
+        {% set edobasico = 0 %}
+        {% set edono = 0 %}
+        {% set edointer = 0 %}
+        {% set edoavanza = 0 %}
+
+        {% for registro in registros %}
+            {% if registro.edo == 'Básico' %}
+                {% set edobasico = edobasico + 1 %}
+            {% elseif registro.edo == 'No' %}
+                {% set edono = edono + 1 %}
+            {% elseif registro.edo == 'Intermedio' %}
+                {% set edointer = edointer + 1 %}
+            {% elseif registro.edo == 'Avanzado' %}
+                {% set edointer = edoavanza + 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% set pybasico = 0 %}
+        {% set pyno = 0 %}
+        {% set pyinter = 0 %}
+        {% set pyavanza = 0 %}
+
+        {% for registro in registros %}
+            {% if registro.python == 'Básico' %}
+                {% set pybasico = pybasico + 1 %}
+            {% elseif registro.python == 'No' %}
+                {% set pyno = pyno + 1 %}
+            {% elseif registro.python == 'Intermedio' %}
+                {% set pyinter = pyinter + 1 %}
+            {% elseif registro.python == 'Avanzado' %}
+                {% set pyavanza = pyavanza + 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% set rbasico = 0 %}
+        {% set rno = 0 %}
+        {% set rinter = 0 %}
+        {% set ravanza = 0 %}
+
+        {% for registro in registros %}
+            {% if registro.r == 'Básico' %}
+                {% set rbasico = rbasico + 1 %}
+            {% elseif registro.r == 'No' %}
+                {% set rno = rno + 1 %}
+            {% elseif registro.r == 'Intermedio' %}
+                {% set rinter = rinter + 1 %}
+            {% elseif registro.r == 'Avanzado' %}
+                {% set ravanza = ravanza + 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% set matbasico = 0 %}
+        {% set matno = 0 %}
+        {% set matinter = 0 %}
+        {% set matavanza = 0 %}
+
+        {% for registro in registros %}
+            {% if registro.matlab == 'Básico' %}
+                {% set matbasico = matbasico + 1 %}
+            {% elseif registro.matlab == 'No' %}
+                {% set matno = matno + 1 %}
+            {% elseif registro.matlab == 'Intermedio' %}
+                {% set matinter = matinter + 1 %}
+            {% elseif registro.matlab == 'Avanzado' %}
+                {% set matavanza = matavanza + 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% set estbasico = 0 %}
+        {% set estno = 0 %}
+        {% set estinter = 0 %}
+        {% set estavanza = 0 %}
+
+        {% for registro in registros %}
+            {% if registro.estadistica == 'Básico' %}
+                {% set estbasico = estbasico + 1 %}
+            {% elseif registro.estadistica == 'No' %}
+                {% set estno = estno + 1 %}
+            {% elseif registro.estadistica == 'Intermedio' %}
+                {% set estinter = estinter + 1 %}
+            {% elseif registro.estadistica == 'Avanzado' %}
+                {% set estavanza = estavanza + 1 %}
+            {% endif %}
+        {% endfor %}
+
+
+        {% set infbasico = 0 %}
+        {% set infno = 0 %}
+        {% set infinter = 0 %}
+        {% set infavanza = 0 %}
+
+        {% for registro in registros %}
+            {% if registro.inferencia == 'Básico' %}
+                {% set infbasico = infbasico + 1 %}
+            {% elseif registro.inferencia == 'No' %}
+                {% set infno = infno + 1 %}
+            {% elseif registro.inferencia == 'Intermedio' %}
+                {% set infinter = infinter + 1 %}
+            {% elseif registro.inferencia == 'Avanzado' %}
+                {% set infavanza = infavanza + 1 %}
+            {% endif %}
+        {% endfor %}
 
         {% for registro in registros %}
             {% if registro.sexo == 'Hombre' %}
@@ -195,6 +297,257 @@
         </tbody>
     </table>
     </div>
+
+
+
+
+    <div class="container-fluid mt-5 mb-5">
+        <hr>
+        <p class="h4 mb-5">Formación y conocimientos previos</p>
+
+        <div class="row">
+            <div class="col-2">
+                <h3>EDO</h3>
+                <canvas id="experienceEDO"></canvas>
+            </div>
+            <div class="col-2">
+                <h3>Python</h3>
+                <canvas id="experiencePy"></canvas>
+            </div>
+            <div class="col-2">
+                <h3>R</h3>
+                <canvas id="experienceR"></canvas>
+            </div>
+            <div class="col-2">
+                <h3>Matlab</h3>
+                <canvas id="experienceMatlab"></canvas>
+            </div>
+            <div class="col-2">
+                <h3>Estadística</h3>
+                <canvas id="experienceEst"></canvas>
+            </div>
+            <div class="col-2">
+                <h3>Inferencia</h3>
+                <canvas id="experienceInf"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dataFromEdo = {
+            "No tengo experiencia": {{ edono|default(0) }},
+            "Básico": {{ edobasico|default(0) }},
+            "Intermedio": {{ edointer|default(0) }},
+            "Avanzado": {{ edoavanza|default(0) }}
+        };
+
+        const ctx1 = document.getElementById('experienceEDO').getContext('2d');
+        new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(dataFromEdo),
+                datasets: [{
+                    label: 'Registros',
+                    data: Object.values(dataFromEdo),
+                    backgroundColor: [
+                        '#ff6384',
+                        '#36a2eb',
+                        '#ffcd56',
+                        '#4bc0c0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const dataFromPy = {
+            "No tengo experiencia": {{ pyno|default(0) }},
+            "Básico": {{ pybasico|default(0) }},
+            "Intermedio": {{ pyinter|default(0) }},
+            "Avanzado": {{ pyavanza|default(0) }}
+        };
+
+        const ctx2 = document.getElementById('experiencePy').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(dataFromPy),
+                datasets: [{
+                    label: 'Registros',
+                    data: Object.values(dataFromPy),
+                    backgroundColor: [
+                        '#ff6384',
+                        '#36a2eb',
+                        '#ffcd56',
+                        '#4bc0c0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const dataFromR = {
+            "No tengo experiencia": {{ rno|default(0) }},
+            "Básico": {{ rbasico|default(0) }},
+            "Intermedio": {{ rinter|default(0) }},
+            "Avanzado": {{ ravanza|default(0) }}
+        };
+
+        const ctx3 = document.getElementById('experienceR').getContext('2d');
+        new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(dataFromR),
+                datasets: [{
+                    label: 'Registros',
+                    data: Object.values(dataFromR),
+                    backgroundColor: [
+                        '#ff6384',
+                        '#36a2eb',
+                        '#ffcd56',
+                        '#4bc0c0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const dataFromMatlab = {
+            "No tengo experiencia": {{ matno|default(0) }},
+            "Básico": {{ matbasico|default(0) }},
+            "Intermedio": {{ matinter|default(0) }},
+            "Avanzado": {{ matavanza|default(0) }}
+        };
+
+        const ctx4 = document.getElementById('experienceMatlab').getContext('2d');
+        new Chart(ctx4, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(dataFromMatlab),
+                datasets: [{
+                    label: 'Registros',
+                    data: Object.values(dataFromMatlab),
+                    backgroundColor: [
+                        '#ff6384',
+                        '#36a2eb',
+                        '#ffcd56',
+                        '#4bc0c0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const dataFromEst = {
+            "No tengo experiencia": {{ estno|default(0) }},
+            "Básico": {{ estbasico|default(0) }},
+            "Intermedio": {{ estinter|default(0) }},
+            "Avanzado": {{ estavanza|default(0) }}
+        };
+
+        const ctx5 = document.getElementById('experienceEst').getContext('2d');
+        new Chart(ctx5, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(dataFromEst),
+                datasets: [{
+                    label: 'Registros',
+                    data: Object.values(dataFromEst),
+                    backgroundColor: [
+                        '#ff6384',
+                        '#36a2eb',
+                        '#ffcd56',
+                        '#4bc0c0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const dataFromInf = {
+            "No tengo experiencia": {{ infno|default(0) }},
+            "Básico": {{ infbasico|default(0) }},
+            "Intermedio": {{ infinter|default(0) }},
+            "Avanzado": {{ infavanza|default(0) }}
+        };
+
+        const ctx6 = document.getElementById('experienceInf').getContext('2d');
+        new Chart(ctx6, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(dataFromInf),
+                datasets: [{
+                    label: 'Registros',
+                    data: Object.values(dataFromInf),
+                    backgroundColor: [
+                        '#ff6384',
+                        '#36a2eb',
+                        '#ffcd56',
+                        '#4bc0c0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
 {% endblock %}
 
 {% block javascripts %}
@@ -202,11 +555,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <script type="application/javascript">
         $(document).ready(function() {
             $('#example').DataTable();
         } );
     </script>
+
+
+
 
 {% endblock %}

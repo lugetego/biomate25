@@ -136,7 +136,7 @@ class RegistroType extends AbstractType
             ])
             ->add('edo',ChoiceType::class, [
                 'choices'  => [
-                    'No tengo experiencia'=>'No tengo experiencia',
+                    'No tengo experiencia'=>'No',
                     'Nivel básico (he visto conceptos introductorios en clase)' => 'Básico',
                     'Nivel intermedio (sé plantear y resolver algunos problemas con EDOs)'=>'Intermedio',
                     'Nivel avanzado (he aplicado EDOs en proyectos de modelación o investigación)'=>'Avanzado'
@@ -146,7 +146,7 @@ class RegistroType extends AbstractType
             ])
             ->add('r',ChoiceType::class, [
                 'choices'  => [
-                    'No tengo experiencia'=>'No tengo experiencia',
+                    'No tengo experiencia'=>'No',
                     'Nivel básico (sé correr código ya escrito y modificarlo ligeramente)' => 'Básico',
                     'Nivel intermedio (puedo resolver numéricamente EDOs, usar datos y hacer gráficas)'=>'Intermedio',
                     'Nivel avanzado (uso R para análisis estadístico/modelos más complejos)'=>'Avanzado'
@@ -156,7 +156,7 @@ class RegistroType extends AbstractType
             ])
             ->add('python',ChoiceType::class, [
                 'choices'  => [
-                    'No tengo experiencia'=>'No tengo experiencia',
+                    'No tengo experiencia'=>'No',
                     'Nivel básico (sé correr código ya escrito y modificarlo ligeramente)' => 'Básico',
                     'Nivel intermedio (puedo usar librerías como NumPy/Pandas/Matplotlib)'=>'Intermedio',
                     'Nivel avanzado (he trabajado en proyectos de simulación o análisis con Python)'=>'Avanzado'
@@ -166,7 +166,7 @@ class RegistroType extends AbstractType
             ])
             ->add('matlab',ChoiceType::class, [
                 'choices'  => [
-                    'No tengo experiencia'=>'No tengo experiencia',
+                    'No tengo experiencia'=>'No',
                     'Nivel básico (he usado Matlab en clases o ejercicios sencillos)' => 'Básico',
                     'Nivel intermedio (puedo programar funciones, hacer simulaciones numéricas)'=>'Intermedio',
                     'Nivel avanzado (he trabajado en proyectos de simulación/modelación en Matlab)'=>'Avanzado'
@@ -176,7 +176,7 @@ class RegistroType extends AbstractType
             ])
             ->add('estadistica',ChoiceType::class, [
                 'choices'  => [
-                    'No tengo experiencia'=>'No tengo experiencia',
+                    'No tengo experiencia'=>'No',
                     'Nivel básico (sé calcular medidas descriptivas y probabilidades sencillas)' => 'Básico',
                     'Nivel intermedio (he aplicado distribuciones, pruebas de hipótesis o regresión)'=>'Intermedio',
                     'Nivel avanzado (he usado estadística/probabilidad en investigación)'=>'Avanzado',
