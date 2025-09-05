@@ -48,10 +48,10 @@
                                 <a href="{{ vich_uploader_asset(registro, 'cartaFile') }}"  target="_blank" > <span class="badge rounded-pill bg-primary"><i class="fa-regular fa-file-pdf"></i> Carta de recomendación</span></a>
                             {% endif %}
                             {% if registro.recomendacion != null %}
-                                <p class="card-text">{{ registro.recomendacion | nl2br }} </p>
-                            {% else %}
-                                <span class="badge rounded-pill bg-warning text-dark">Sin recomendación</span>
-                            {% endif %}
+                        <p class="card-text">{{ registro.recomendacion | nl2br }} </p>
+                        {% else %}
+                            <span class="badge rounded-pill bg-warning text-dark">Sin recomendación</span>
+                        {% endif %}
                         </p>
                         <p class="card-text">
                             {% if registro.caliName != null %}
@@ -86,6 +86,70 @@
             </div>
             <div class="col-8">
                 <div class="card border-dark mt-3" style="max-width: 100%">
+                    <div class="card-header">Formación y conocimientos previos</div>
+                    <div class="card-body text-dark">
+                        <p class="card-text">
+
+                        <div class="container mt-3">
+                            <div class="border rounded p-3 mb-3">
+
+                                <!-- Primera fila -->
+                                <div class="row mb-2">
+                                    <div class="col-md-4">
+                                        <strong>EDO</strong>
+                                        <span class="badge" style="background-color:#36a2eb;">
+                        {{ registro.edo }}
+                    </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>R</strong>
+                                        <span class="badge" style="background-color:#ff6384;">
+                        {{ registro.r }}
+                    </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>Python</strong>
+                                        <span class="badge" style="background-color:#4bc0c0;">
+                        {{ registro.python }}
+                    </span>
+                                    </div>
+                                </div>
+
+                                <!-- Segunda fila -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <strong>Matlab</strong>
+                                        <span class="badge" style="background-color:#9966ff;">
+                        {{ registro.matlab }}
+                    </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>Estadística</strong>
+                                        <span class="badge" style="background-color:#ffcd56; color:#000;">
+                        {{ registro.estadistica }}
+                    </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>Inferencia</strong>
+                                        <span class="badge" style="background-color:#8bc34a;">
+                        {{ registro.inferencia }}
+                    </span>
+                                    </div>
+                                </div>
+
+
+
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+
+            <div class="col-8">
+                <div class="card border-dark mt-3" style="max-width: 100%">
                     <div class="card-header">Información de control</div>
                     <div class="card-body text-dark">
                         <p class="card-text">
@@ -114,6 +178,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 {% endblock %}
