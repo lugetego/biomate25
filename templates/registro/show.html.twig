@@ -73,6 +73,12 @@
                         <p class="card-text">Restricciones de alimentación: <em>"{{ registro.restricciones }}"</em> </p>
                         <p class="card-text">Curso 1: <em>{{ registro.curso1 }}</em> </p>
                         <p class="card-text">Curso 2: <em>{{ registro.curso2 }}</em> </p>
+                        {% if registro.poster != "" %}
+                        <p class="card-text">Póster: <em><strong>{{ registro.tituloposter }}</strong></em></p>
+                            <p>{{ registro.poster }}</p>
+
+                        {%  endif %}
+
 
                         <p class="card-text">Razones por la que quiere asistir: <em>"{{ registro.razones }}"</em>
                         </p>
