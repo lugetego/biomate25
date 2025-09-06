@@ -74,8 +74,8 @@
                         <p class="card-text">Curso 1: <em>{{ registro.curso1 }}</em> </p>
                         <p class="card-text">Curso 2: <em>{{ registro.curso2 }}</em> </p>
                         {% if registro.poster == "Sí" %}
-                        <p class="card-text">Póster: <em><strong>{{ registro.poster }}</strong></em></p>
-                            <p>{{ registro.tituloposter }}</p>
+                        <p class="card-text">Póster: <strong>{{ registro.poster }}</strong></p>
+                            <p><em>{{ registro.tituloposter }}</em></p>
 
                         {%  endif %}
 
