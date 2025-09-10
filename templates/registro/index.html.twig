@@ -107,20 +107,15 @@
         {% endfor %}
 
 
-        {% set infbasico = 0 %}
+        {% set infsi = 0 %}
         {% set infno = 0 %}
-        {% set infinter = 0 %}
-        {% set infavanza = 0 %}
+
 
         {% for registro in registros %}
-            {% if registro.inferencia == 'Básico' %}
-                {% set infbasico = infbasico + 1 %}
+            {% if registro.inferencia == 'Sí' %}
+                {% set infsi = infsi + 1 %}
             {% elseif registro.inferencia == 'No' %}
                 {% set infno = infno + 1 %}
-            {% elseif registro.inferencia == 'Intermedio' %}
-                {% set infinter = infinter + 1 %}
-            {% elseif registro.inferencia == 'Avanzado' %}
-                {% set infavanza = infavanza + 1 %}
             {% endif %}
         {% endfor %}
 
@@ -515,10 +510,9 @@
 
     <script>
         const dataFromInf = {
-            "No tengo experiencia": {{ infno|default(0) }},
-            "Básico": {{ infbasico|default(0) }},
-            "Intermedio": {{ infinter|default(0) }},
-            "Avanzado": {{ infavanza|default(0) }}
+            "No": {{ infno|default(0) }},
+            "Sí": {{ infbsi|default(0) }}
+
         };
 
         const ctx6 = document.getElementById('experienceInf').getContext('2d');
@@ -531,8 +525,6 @@
                     data: Object.values(dataFromInf),
                     backgroundColor: [
                         '#ff6384',
-                        '#36a2eb',
-                        '#ffcd56',
                         '#4bc0c0'
                     ],
                     borderWidth: 1
