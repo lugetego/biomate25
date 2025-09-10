@@ -168,6 +168,10 @@ class RegistroController extends AbstractController
         $form->remove('matlab');
         $form->remove('estadistica');
         $form->remove('inferencia');
+        $form->remove('poster');
+        $form->remove('tituloposter');
+
+
 
 
 
