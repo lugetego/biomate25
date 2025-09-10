@@ -161,6 +161,7 @@ class RegistroController extends AbstractController
         $form->remove('credencialFile');
         $form->remove('nivel');
         $form->remove('cuentap');
+        $form->remove('curso3');
 
         $twigglobals = $this->get("twig")->getGlobals();
         $nombre_evento = $twigglobals["evento"];
