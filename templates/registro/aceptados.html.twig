@@ -166,6 +166,7 @@
             {% endif %}
         {% endfor %}
     {% endif %}
+
     <div class="container-fluid">
         <button type="button" class="btn btn-light mb-5 ">
             Mujeres <span class="badge bg-dark">{{ mujeres }}</span>
@@ -186,20 +187,22 @@
         <button type="button" class="btn btn-light mb-5 ">
             Sin beca <span class="badge bg-dark">{{ sinbeca }}</span>
         </button>
+
         <button type="button" class="btn btn-light mb-5 ">
-            Recomendados <span class="badge bg-dark">{{ recomendados }}</span>
-        </button>
-        <button type="button" class="btn btn-light mb-5 ">
-            <a href="{{ path('app_registro_aceptados') }}">Aceptados</a>
-            <span class="badge bg-dark">{{ aceptados }}</span>
+            Aceptados <span class="badge bg-dark">{{ aceptados }}</span>
         </button>
         <button type="button" class="btn btn-light mb-5 ">
             Confirmados <span class="badge bg-dark">{{ confirmados }}</span>
         </button>
+        <button type="button" class="btn btn-light mb-5 ">
+            <a href="{{ path('app_registro_index') }}">Todos los registros</a>
+        </button>
         <button type="button" class="btn btn-light mb-5 " data-bs-toggle="modal" data-bs-target="#exampleModal">
             <u>Correos registrados</u> <span class="badge bg-primary">{{ registros|length }}</span>
         </button>
+
     </div>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -244,7 +247,7 @@
             <th>Porcentaje</th>
             <th>Profesor</th>
             <th>Promedio</th>
-            {#                <th>Confirmado</th>#}
+            <th>Confirmado</th>
             <th>Restricciones alim.</th>
             <th>Beca</th>
             <th>Recomendado</th>
@@ -265,21 +268,26 @@
                 <td>{{ registro.porcentaje }}</td>
                 <td>{{ registro.profesor }}</td>
                 <td>{{ registro.promedio }}</td>
-                {#                    <td>{{ registro.confirmado ? 'Yes' : 'No' }}</td>#}
-{#                <td>{{ registro.vegetariano ? 'Yes' : 'No' }}</td>#}
+                <td class="text-center">
+                {% if registro.confirmado == true %}
+                    <span class="badge bg-primary"> {{ "Sí" }}</span>
+                {% else %}
+                    <span class="badge bg-secondary"> {{"No"}}</span>
+                {% endif %}
+                </td>
                 <td>{{ registro.restricciones }}</td>
 
                 <td>{{ registro.beca }}</td>
                 <td class="text-center">
                     {% if registro.recomendacion != null or registro.cartaName != null %}
-                        <span class="badge bg-primary center"> {{ "Si" }}</span>
+                        <span class="badge bg-primary center"> {{ "Sí" }}</span>
                     {% else %}
                         <span class="badge bg-secondary center"> {{"No"}}</span>
                     {% endif %}
                 </td>
                 <td class="text-center">
                     {% if registro.aceptado == true %}
-                        <span class="badge bg-primary"> {{ "Si" }}</span>
+                        <span class="badge bg-primary"> {{ "Sí" }}</span>
                     {% else %}
                         <span class="badge bg-secondary"> {{"No"}}</span>
                     {% endif %}
@@ -292,7 +300,7 @@
         {% endfor %}
         </tbody>
     </table>
-    </div>
+   </div>
 
 
 
@@ -556,8 +564,6 @@
             $('#example').DataTable();
         } );
     </script>
-
-
 
 
 {% endblock %}
