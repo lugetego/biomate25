@@ -46,7 +46,6 @@
         <table class="table table-striped table-hover table-bordered align-middle">
             <thead class="table-dark">
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Carrera</th>
                 <th scope="col">Semestre</th>
@@ -59,7 +58,6 @@
             {% for registro in registros %}
                 {% if registro.curso1 == 'Markov' %}
                 <tr>
-                    <td>{{ loop.index }}</td>
                     <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                     <td>{{ registro.carrera }}</td>
                     <td>{{ registro.semestre }}</td>
