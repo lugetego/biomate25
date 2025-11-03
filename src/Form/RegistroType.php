@@ -128,7 +128,7 @@ class RegistroType extends AbstractType
             ])
             ->add('curso3',ChoiceType::class, [
                 'choices'  => [
-                    'C4: Identificabilidad estructural y práctica de parámetros'=>'Identificabilidad ',
+                    'C4: Identificabilidad estructural y práctica de parámetros'=>'Identificabilidad',
                     'C7: Clustering y aprendizaje no supervisado en datos biológicos' => 'Clustering',
 
                 ],

@@ -38,6 +38,16 @@ class RegistroController extends AbstractController
     }
 
     /**
+     * @Route("/cursos", name="app_registro_cursos", methods={"GET"})
+     */
+    public function cursos(RegistroRepository $registroRepository): Response
+    {
+        return $this->render('registro/cursos.html.twig', [
+            'registros' => $registroRepository->findBy(['aceptado' => true]),
+        ]);
+    }
+
+    /**
      * @Route("/resultados", name="app_registro_resultados", methods={"GET"})
      */
     public function resultados(RegistroRepository $registroRepository): Response
