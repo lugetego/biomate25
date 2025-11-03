@@ -56,11 +56,12 @@
             </tr>
             </thead>
             <tbody>
+            {% set counter = 0 %}
             {% for registro in registros %}
-                {% set counter = 0 %}
+                {% set counter = counter + 1 %}
                 {% if registro.curso1 == 'Markov' %}
                 <tr>
-                    <td>{{ counter }}</td>
+                    <td>{{ counter  }}</td>
                     <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                     <td>{{ registro.carrera }}</td>
                     <td>{{ registro.semestre }}</td>
@@ -92,8 +93,10 @@
             </tr>
             </thead>
             <tbody>
+            {% set counter = 0 %}
             {% for registro in registros %}
-                {% set counter = 0 %}
+                {% set counter = counter + 1 %}
+
                 {% if registro.curso1 == 'Booleana' %}
                     <tr>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
