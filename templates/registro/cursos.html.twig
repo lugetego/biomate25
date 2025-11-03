@@ -127,7 +127,7 @@
             </thead>
             <tbody>
             {% for registro in registros %}
-                {% if registro.curso1 == 'Inferencia' %}
+                {% if registro.curso2 == 'Inferencia' %}
                     <tr>
                         <td>{{ loop.index }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
@@ -161,7 +161,7 @@
             </thead>
             <tbody>
             {% for registro in registros %}
-                {% if registro.curso1 == 'Ecología' %}
+                {% if registro.curso2 == 'Ecología' %}
                     <tr>
                         <td>{{ loop.index }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
@@ -195,7 +195,7 @@
             </thead>
             <tbody>
             {% for registro in registros %}
-                {% if registro.curso1 == 'Identificabilidad' %}
+                {% if registro.curso3 == 'Identificabilidad' %}
                     <tr>
                         <td>{{ loop.index }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
@@ -230,7 +230,7 @@
             </thead>
             <tbody>
             {% for registro in registros %}
-                {% if registro.curso1 == 'Clustering' %}
+                {% if registro.curso3 == 'Clustering' %}
                     <tr>
                         <td>{{ loop.index }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
