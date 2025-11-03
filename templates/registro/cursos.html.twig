@@ -57,9 +57,10 @@
             </thead>
             <tbody>
             {% for registro in registros %}
+                {% set counter = 0 %}
                 {% if registro.curso1 == 'Markov' %}
                 <tr>
-                    <td>{{ loop1.index }}</td>
+                    <td>{{ counter }}</td>
                     <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                     <td>{{ registro.carrera }}</td>
                     <td>{{ registro.semestre }}</td>
@@ -81,6 +82,7 @@
         <table class="table table-striped table-hover table-bordered align-middle">
             <thead class="table-dark">
             <tr>
+                <td>{{ counter }}</td>
                 <th scope="col">Nombre</th>
                 <th scope="col">Carrera</th>
                 <th scope="col">Semestre</th>
@@ -91,6 +93,7 @@
             </thead>
             <tbody>
             {% for registro in registros %}
+                {% set counter = 0 %}
                 {% if registro.curso1 == 'Booleana' %}
                     <tr>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
