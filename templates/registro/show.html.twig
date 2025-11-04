@@ -48,9 +48,9 @@
                                 <a href="{{ vich_uploader_asset(registro, 'cartaFile') }}"  target="_blank" > <span class="badge rounded-pill bg-primary"><i class="fa-regular fa-file-pdf"></i> Carta de recomendación</span></a>
                             {% endif %}
                             {% if registro.recomendacion != null %}
-                        <p class="card-text">{{ registro.recomendacion | nl2br }} </p>
+                                <p class="card-text">{{ registro.recomendacion | nl2br }} </p>
                         {% else %}
-                            <span class="badge rounded-pill bg-warning text-dark">Sin recomendación</span>
+                            <span class="badge rounded-pill bg-warning text-dark">Sin texto de recomendación</span>
                         {% endif %}
                         </p>
                         <p class="card-text">
