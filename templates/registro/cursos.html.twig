@@ -97,6 +97,7 @@
                 {% if registro.curso1 == 'Booleana' %}
                     {% set counter = counter + 1 %}
                     <tr>
+                        <td>{{ counter }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
                         <td>{{ registro.semestre }}</td>
