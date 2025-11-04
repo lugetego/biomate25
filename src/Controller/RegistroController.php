@@ -42,10 +42,15 @@ class RegistroController extends AbstractController
      */
     public function noaceptados(RegistroRepository $registroRepository): Response
     {
+        $registros = $registroRepository->createQueryBuilder('r')
+            ->where('r.aceptado = :false OR r.aceptado IS NULL')
+            ->setParameter('false', false)
+            ->orderBy('r.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+
         return $this->render('registro/noaceptados.html.twig', [
-            'registros' => $registroRepository->findBy([
-                'aceptado' => [false, null],
-            ]),
+            'registros' => $registros,
         ]);
     }
 
