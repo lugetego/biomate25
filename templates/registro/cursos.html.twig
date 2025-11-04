@@ -6,261 +6,218 @@
     {{ parent() }}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 {% endblock %}
+
 {% block body %}
-
-
-
-    {% set markov = 0 %}
-    {% set booleana = 0 %}
-    {% set inferencia = 0 %}
-    {% set ecologia = 0 %}
-    {% set identifi = 0 %}
-    {% set clustering = 0 %}
-
-    {% for registro in registros %}
-        {% if registro.curso1 == 'Markov' %}
-            {% set markov = markov + 1 %}
-        {% elseif registro.curso1 == 'Booleana' %}
-            {% set booleana = booleana + 1 %}
-        {% endif %}
-    {% endfor %}
-
-    {% for registro in registros %}
-        {% if registro.curso2 == 'Inferencia' %}
-            {% set inferencia = inferencia + 1 %}
-        {% elseif registro.curso2 == 'Ecología' %}
-            {% set ecologia = ecologia + 1 %}
-        {% endif %}
-    {% endfor %}
-
-    {% for registro in registros %}
-        {% if registro.curso3 == 'Identificabilidad' %}
-            {% set identifi = identifi + 1 %}
-        {% elseif registro.curso3 == 'Clustering' %}
-            {% set clustering = clustering + 1 %}
-        {% endif %}
-    {% endfor %}
-
     <div class="container mt-4">
-        <h2 class="mb-4 text-center">Procesos de Markov a tiempo continuo</h2>
-        <table class="table table-striped table-hover table-bordered align-middle">
-            <thead class="table-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Carrera</th>
-                <th scope="col">Semestre</th>
-                <th scope="col">Porcentaje</th>
-                <th scope="col">Procedencia</th>
-                <th scope="col">Correo</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% set counter = 0 %}
-            {% for registro in registros %}
-                {% if registro.curso1 == 'Markov' %}
-                    {% set counter = counter + 1 %}
-                    <tr>
-                    <td>{{ counter }}</td>
-                    <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
-                    <td>{{ registro.carrera }}</td>
-                    <td>{{ registro.semestre }}</td>
-                    <td>{{ registro.porcentaje }}</td>
-                    <td>{{ registro.procedencia }}</td>
-                    <td>{{ registro.mail }}</td>
-                </tr>
-                {% endif %}
-            {% else %}
-                <tr>
-                    <td colspan="5" class="text-center text-muted">No hay registros</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
 
-        <h2 class="mb-4 text-center">Modelos booleanos para el estudio de procesos biológicos</h2>
-        <table class="table table-striped table-hover table-bordered align-middle">
-            <thead class="table-dark">
-            <tr>
-                <td>#</td>
-                <th scope="col">Nombre</th>
-                <th scope="col">Carrera</th>
-                <th scope="col">Semestre</th>
-                <th scope="col">Porcentaje</th>
-                <th scope="col">Procedencia</th>
-                <th scope="col">Correo</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% set counter = 0 %}
-            {% for registro in registros %}
-                {% if registro.curso1 == 'Booleana' %}
-                    {% set counter = counter + 1 %}
+        <h2 class="text-center mb-4">Cursos registrados</h2>
+
+        <!-- Tabs navigation -->
+        <ul class="nav nav-tabs" id="cursoTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="markov-tab" data-bs-toggle="tab" data-bs-target="#markov" type="button" role="tab">Markov</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="booleana-tab" data-bs-toggle="tab" data-bs-target="#booleana" type="button" role="tab">Booleana</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="inferencia-tab" data-bs-toggle="tab" data-bs-target="#inferencia" type="button" role="tab">Inferencia</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ecologia-tab" data-bs-toggle="tab" data-bs-target="#ecologia" type="button" role="tab">Ecología</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="identifi-tab" data-bs-toggle="tab" data-bs-target="#identifi" type="button" role="tab">Identificabilidad</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="clustering-tab" data-bs-toggle="tab" data-bs-target="#clustering" type="button" role="tab">Clustering</button>
+            </li>
+        </ul>
+
+        <!-- Tabs content -->
+        <div class="tab-content mt-3" id="cursoTabsContent">
+
+            {# --- MARKOV --- #}
+            <div class="tab-pane fade show active" id="markov" role="tabpanel">
+                <h4 class="mb-3 text-center">Procesos de Markov a tiempo continuo</h4>
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
                     <tr>
-                        <td>{{ counter }}</td>
-                        <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
-                        <td>{{ registro.carrera }}</td>
-                        <td>{{ registro.semestre }}</td>
-                        <td>{{ registro.porcentaje }}</td>
-                        <td>{{ registro.procedencia }}</td>
-                        <td>{{ registro.mail }}</td>
+                        <th>#</th><th>Nombre</th><th>Carrera</th><th>Semestre</th>
+                        <th>Porcentaje</th><th>Procedencia</th><th>Correo</th>
                     </tr>
-                {% endif %}
-            {% else %}
-                <tr>
-                    <td colspan="5" class="text-center text-muted">No hay registros</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                    {% set counter = 0 %}
+                    {% for registro in registros if registro.curso1 == 'Markov' %}
+                        {% set counter = counter + 1 %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
+                            <td>{{ registro.carrera }}</td>
+                            <td>{{ registro.semestre }}</td>
+                            <td>{{ registro.porcentaje }}</td>
+                            <td>{{ registro.procedencia }}</td>
+                            <td>{{ registro.mail }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="7" class="text-center text-muted">No hay registros</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
-
-        <h2 class="mb-4 text-center">Estadística e Inferencia Bayesiana Aplicada al Análisis de Datos</h2>
-        <table class="table table-striped table-hover table-bordered align-middle">
-            <thead class="table-dark">
-            <tr>
-                <td>#</td>
-                <th scope="col">Nombre</th>
-                <th scope="col">Carrera</th>
-                <th scope="col">Semestre</th>
-                <th scope="col">Porcentaje</th>
-                <th scope="col">Procedencia</th>
-                <th scope="col">Correo</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% set counter = 0 %}
-            {% for registro in registros %}
-                {% if registro.curso2 == 'Inferencia' %}
-                    {% set counter = counter + 1 %}
+            {# --- BOOLEANA --- #}
+            <div class="tab-pane fade" id="booleana" role="tabpanel">
+                <h4 class="mb-3 text-center">Modelos booleanos para el estudio de procesos biológicos</h4>
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
                     <tr>
-                        <td>{{ counter }}</td>
-                        <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
-                        <td>{{ registro.carrera }}</td>
-                        <td>{{ registro.semestre }}</td>
-                        <td>{{ registro.porcentaje }}</td>
-                        <td>{{ registro.procedencia }}</td>
-                        <td>{{ registro.mail }}</td>
+                        <th>#</th><th>Nombre</th><th>Carrera</th><th>Semestre</th>
+                        <th>Porcentaje</th><th>Procedencia</th><th>Correo</th>
                     </tr>
-                {% endif %}
-            {% else %}
-                <tr>
-                    <td colspan="5" class="text-center text-muted">No hay registros</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                    {% set counter = 0 %}
+                    {% for registro in registros if registro.curso1 == 'Booleana' %}
+                        {% set counter = counter + 1 %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
+                            <td>{{ registro.carrera }}</td>
+                            <td>{{ registro.semestre }}</td>
+                            <td>{{ registro.porcentaje }}</td>
+                            <td>{{ registro.procedencia }}</td>
+                            <td>{{ registro.mail }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="7" class="text-center text-muted">No hay registros</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
-        <h2 class="mb-4 text-center">Niveles biológicos de organización, biodiversidad y ecología de la conducta</h2>
-        <table class="table table-striped table-hover table-bordered align-middle">
-            <thead class="table-dark">
-            <tr>
-                <td>#</td>
-                <th scope="col">Nombre</th>
-                <th scope="col">Carrera</th>
-                <th scope="col">Semestre</th>
-                <th scope="col">Porcentaje</th>
-                <th scope="col">Procedencia</th>
-                <th scope="col">Correo</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% set counter = 0 %}
-            {% for registro in registros %}
-                {% if registro.curso2 == 'Ecología' %}
-                    {% set counter = counter + 1 %}
+            {# --- INFERENCIA --- #}
+            <div class="tab-pane fade" id="inferencia" role="tabpanel">
+                <h4 class="mb-3 text-center">Estadística e Inferencia Bayesiana Aplicada al Análisis de Datos</h4>
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
                     <tr>
-                        <td>{{ counter }}</td>
-                        <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
-                        <td>{{ registro.carrera }}</td>
-                        <td>{{ registro.semestre }}</td>
-                        <td>{{ registro.porcentaje }}</td>
-                        <td>{{ registro.procedencia }}</td>
-                        <td>{{ registro.mail }}</td>
+                        <th>#</th><th>Nombre</th><th>Carrera</th><th>Semestre</th>
+                        <th>Porcentaje</th><th>Procedencia</th><th>Correo</th>
                     </tr>
-                {% endif %}
-            {% else %}
-                <tr>
-                    <td colspan="5" class="text-center text-muted">No hay registros</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                    {% set counter = 0 %}
+                    {% for registro in registros if registro.curso2 == 'Inferencia' %}
+                        {% set counter = counter + 1 %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
+                            <td>{{ registro.carrera }}</td>
+                            <td>{{ registro.semestre }}</td>
+                            <td>{{ registro.porcentaje }}</td>
+                            <td>{{ registro.procedencia }}</td>
+                            <td>{{ registro.mail }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="7" class="text-center text-muted">No hay registros</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
-        <h2 class="mb-4 text-center">Identificabilidad estructural y práctica de parámetros</h2>
-        <table class="table table-striped table-hover table-bordered align-middle">
-            <thead class="table-dark">
-            <tr>
-                <td>#</td>
-                <th scope="col">Nombre</th>
-                <th scope="col">Carrera</th>
-                <th scope="col">Semestre</th>
-                <th scope="col">Porcentaje</th>
-                <th scope="col">Procedencia</th>
-                <th scope="col">Correo</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% set counter = 0 %}
-            {% for registro in registros %}
-                {% if registro.curso3 == 'Identificabilidad ' %}
-                    {% set counter = counter + 1 %}
+            {# --- ECOLOGÍA --- #}
+            <div class="tab-pane fade" id="ecologia" role="tabpanel">
+                <h4 class="mb-3 text-center">Niveles biológicos de organización, biodiversidad y ecología de la conducta</h4>
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
                     <tr>
-                        <td>{{ counter }}</td>
-                        <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
-                        <td>{{ registro.carrera }}</td>
-                        <td>{{ registro.semestre }}</td>
-                        <td>{{ registro.porcentaje }}</td>
-                        <td>{{ registro.procedencia }}</td>
-                        <td>{{ registro.mail }}</td>
+                        <th>#</th><th>Nombre</th><th>Carrera</th><th>Semestre</th>
+                        <th>Porcentaje</th><th>Procedencia</th><th>Correo</th>
                     </tr>
-                {% endif %}
-            {% else %}
-                <tr>
-                    <td colspan="5" class="text-center text-muted">No hay registros</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                    {% set counter = 0 %}
+                    {% for registro in registros if registro.curso2 == 'Ecología' %}
+                        {% set counter = counter + 1 %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
+                            <td>{{ registro.carrera }}</td>
+                            <td>{{ registro.semestre }}</td>
+                            <td>{{ registro.porcentaje }}</td>
+                            <td>{{ registro.procedencia }}</td>
+                            <td>{{ registro.mail }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="7" class="text-center text-muted">No hay registros</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
-
-        <h2 class="mb-4 text-center">Clustering y aprendizaje no supervisado en datos biológicos</h2>
-        <table class="table table-striped table-hover table-bordered align-middle">
-            <thead class="table-dark">
-            <tr>
-                <td>#</td>
-                <th scope="col">Nombre</th>
-                <th scope="col">Carrera</th>
-                <th scope="col">Semestre</th>
-                <th scope="col">Porcentaje</th>
-                <th scope="col">Procedencia</th>
-                <th scope="col">Correo</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% set counter = 0 %}
-            {% for registro in registros %}
-                {% if registro.curso3 == 'Clustering' %}
-                    {% set counter = counter + 1 %}
+            {# --- IDENTIFICABILIDAD --- #}
+            <div class="tab-pane fade" id="identifi" role="tabpanel">
+                <h4 class="mb-3 text-center">Identificabilidad estructural y práctica de parámetros</h4>
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
                     <tr>
-                        <td>{{ counter }}</td>
-                        <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
-                        <td>{{ registro.carrera }}</td>
-                        <td>{{ registro.semestre }}</td>
-                        <td>{{ registro.porcentaje }}</td>
-                        <td>{{ registro.procedencia }}</td>
-                        <td>{{ registro.mail }}</td>
+                        <th>#</th><th>Nombre</th><th>Carrera</th><th>Semestre</th>
+                        <th>Porcentaje</th><th>Procedencia</th><th>Correo</th>
                     </tr>
-                {% endif %}
-            {% else %}
-                <tr>
-                    <td colspan="5" class="text-center text-muted">No hay registros</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                    {% set counter = 0 %}
+                    {% for registro in registros if registro.curso3 == 'Identificabilidad' %}
+                        {% set counter = counter + 1 %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
+                            <td>{{ registro.carrera }}</td>
+                            <td>{{ registro.semestre }}</td>
+                            <td>{{ registro.porcentaje }}</td>
+                            <td>{{ registro.procedencia }}</td>
+                            <td>{{ registro.mail }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="7" class="text-center text-muted">No hay registros</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {# --- CLUSTERING --- #}
+            <div class="tab-pane fade" id="clustering" role="tabpanel">
+                <h4 class="mb-3 text-center">Clustering y aprendizaje no supervisado en datos biológicos</h4>
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>#</th><th>Nombre</th><th>Carrera</th><th>Semestre</th>
+                        <th>Porcentaje</th><th>Procedencia</th><th>Correo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set counter = 0 %}
+                    {% for registro in registros if registro.curso3 == 'Clustering' %}
+                        {% set counter = counter + 1 %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
+                            <td>{{ registro.carrera }}</td>
+                            <td>{{ registro.semestre }}</td>
+                            <td>{{ registro.porcentaje }}</td>
+                            <td>{{ registro.procedencia }}</td>
+                            <td>{{ registro.mail }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="7" class="text-center text-muted">No hay registros</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
-
-
 
 {% endblock %}
