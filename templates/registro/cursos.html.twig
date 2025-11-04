@@ -206,7 +206,7 @@
                 {% if registro.curso3 == 'Identificabilidad ' %}
                     {% set counter = counter + 1 %}
                     <tr>
-                        <td>#</td>
+                        <td>{{ counter }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
                         <td>{{ registro.semestre }}</td>
@@ -243,7 +243,7 @@
                 {% if registro.curso3 == 'Clustering' %}
                     {% set counter = counter + 1 %}
                     <tr>
-                        <td>#</td>
+                        <td>{{ counter }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
                         <td>{{ registro.semestre }}</td>
