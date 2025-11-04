@@ -38,6 +38,19 @@ class RegistroController extends AbstractController
     }
 
     /**
+     * @Route("/hospedaje", name="app_registro_hospedaje", methods={"GET"})
+     */
+    public function hospedaje(RegistroRepository $registroRepository): Response
+    {
+        return $this->render('registro/hospedaje.html.twig', [
+            'registros' => $registroRepository->findBy([
+                'aceptado' => true,
+                'beca' => 'Hospedaje y alimentación',
+            ]),
+        ]);
+    }
+
+    /**
      * @Route("/cursos", name="app_registro_cursos", methods={"GET"})
      */
     public function cursos(RegistroRepository $registroRepository): Response
