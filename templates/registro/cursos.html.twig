@@ -133,6 +133,7 @@
                 {% if registro.curso2 == 'Inferencia' %}
                     {% set counter = counter + 1 %}
                     <tr>
+                        <td>{{ counter }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
                         <td>{{ registro.semestre }}</td>
@@ -167,6 +168,7 @@
                 {% if registro.curso2 == 'Ecología' %}
                     {% set counter = counter + 1 %}
                     <tr>
+                        <td>{{ counter }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
                         <td>{{ registro.semestre }}</td>
