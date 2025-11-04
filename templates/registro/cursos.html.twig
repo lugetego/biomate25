@@ -76,8 +76,11 @@
                             {% set counter = counter + 1 %}
                             <tr>
                                 <td>{{ counter }}</td>
-                                <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
-                                <td>{{ registro.carrera }}</td>
+                                <td>
+                                    <a href="{{ path('app_registro_show', { slug: registro.slug }) }}" class="text-decoration-none">
+                                        {{ (registro.nombre ~ ' ' ~ registro.paterno ~ ' ' ~ registro.materno)|title }}
+                                    </a>
+                                </td>                                <td>{{ registro.carrera }}</td>
                                 <td>{{ registro.semestre }}</td>
                                 <td>{{ registro.porcentaje }}</td>
                                 <td>{{ registro.procedencia }}</td>
