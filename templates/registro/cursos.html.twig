@@ -78,7 +78,6 @@
             </tbody>
         </table>
 
-
         <h2 class="mb-4 text-center">Modelos booleanos para el estudio de procesos biológicos</h2>
         <table class="table table-striped table-hover table-bordered align-middle">
             <thead class="table-dark">
@@ -95,9 +94,8 @@
             <tbody>
             {% set counter = 0 %}
             {% for registro in registros %}
-                {% set counter = counter + 1 %}
-
                 {% if registro.curso1 == 'Booleana' %}
+                    {% set counter = counter + 1 %}
                     <tr>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
