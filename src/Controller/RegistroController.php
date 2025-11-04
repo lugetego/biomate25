@@ -11,6 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+
 
 /**
  * @Route("/registro")
@@ -73,6 +75,26 @@ class RegistroController extends AbstractController
     public function cursos(RegistroRepository $registroRepository): Response
     {
         return $this->render('registro/cursos.html.twig', [
+            'registros' => $registroRepository->findBy(['aceptado' => true]),
+        ]);
+    }
+
+    /**
+     * @Route("/consulta-cursos", name="app_registro_consultacursos", methods={"GET"})
+     */
+    public function consultacursos(
+        Request $request,
+        RegistroRepository $registroRepository,
+        ParameterBagInterface $params
+    ): Response {
+        $validToken = $params->get('PUBLIC_COURSES_TOKEN');
+        $token = $request->query->get('token');
+
+        if ($token !== $validToken) {
+            throw $this->createAccessDeniedException('Acceso no autorizado.');
+        }
+
+        return $this->render('registro/consultacursos.html.twig', [
             'registros' => $registroRepository->findBy(['aceptado' => true]),
         ]);
     }
