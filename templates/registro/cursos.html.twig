@@ -128,8 +128,10 @@
             </tr>
             </thead>
             <tbody>
+            {% set counter = 0 %}
             {% for registro in registros %}
                 {% if registro.curso2 == 'Inferencia' %}
+                    {% set counter = counter + 1 %}
                     <tr>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
@@ -160,8 +162,10 @@
             </tr>
             </thead>
             <tbody>
+            {% set counter = 0 %}
             {% for registro in registros %}
                 {% if registro.curso2 == 'Ecología' %}
+                    {% set counter = counter + 1 %}
                     <tr>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
