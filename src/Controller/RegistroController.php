@@ -43,7 +43,9 @@ class RegistroController extends AbstractController
     public function noaceptados(RegistroRepository $registroRepository): Response
     {
         return $this->render('registro/noaceptados.html.twig', [
-            'registros' => $registroRepository->findBy(['aceptado' => false]),
+            'registros' => $registroRepository->findBy([
+                'aceptado' => [false, null],
+            ]),
         ]);
     }
 
