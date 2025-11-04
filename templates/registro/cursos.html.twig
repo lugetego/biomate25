@@ -9,6 +9,26 @@
 
 {% block body %}
     <div class="container mt-4">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-2 rounded">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('app_registro_index') }}" class="text-decoration-none">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ path('app_registro_aceptados') }}" class="text-decoration-none">
+                        <i class="bi bi-house-door"></i> Aceptados
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Cursos
+                </li>
+            </ol>
+        </nav>
+
         <h1 class="text-center mb-4">Cursos</h1>
 
         <!-- Bootstrap Tabs -->
