@@ -154,7 +154,6 @@
                 {% set sinbeca = sinbeca + 1 %}
             {% endif %}
         {% endfor %}
-
         {% for registro in registros %}
             {% if registro.aceptado == true %}
                 {% set aceptados = aceptados + 1 %}
@@ -188,9 +187,9 @@
         <button type="button" class="btn btn-light mb-5 ">
             Sin beca <span class="badge bg-dark">{{ sinbeca }}</span>
         </button>
-
         <button type="button" class="btn btn-light mb-5 ">
-            Aceptados <span class="badge bg-dark">{{ aceptados }}</span>
+            <a href="{{ path('app_registro_aceptados') }}">Aceptados</a>
+            <span class="badge bg-dark">{{ aceptados }}</span>
         </button>
         <button type="button" class="btn btn-light mb-5 ">
             Confirmados <span class="badge bg-dark">{{ confirmados }}</span>
