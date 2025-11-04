@@ -190,6 +190,7 @@
         <table class="table table-striped table-hover table-bordered align-middle">
             <thead class="table-dark">
             <tr>
+                <td>{{ counter }}</td>
                 <th scope="col">Nombre</th>
                 <th scope="col">Carrera</th>
                 <th scope="col">Semestre</th>
@@ -199,9 +200,12 @@
             </tr>
             </thead>
             <tbody>
+            {% set counter = 0 %}
             {% for registro in registros %}
                 {% if registro.curso3 == 'Identificabilidad ' %}
+                    {% set counter = counter + 1 %}
                     <tr>
+                        <td>{{ counter }}</td>
                         <td>{{ registro.nombre }} {{ registro.paterno }} {{ registro.materno }}</td>
                         <td>{{ registro.carrera }}</td>
                         <td>{{ registro.semestre }}</td>
